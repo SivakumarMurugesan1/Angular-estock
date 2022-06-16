@@ -1,0 +1,45 @@
+<div class="col-md-6 offset-md-3">
+    <h3>Register Company</h3>
+<form  [formGroup]="companyForm"  (ngSubmit)="onSubmit()">  
+         
+        <label>Company Code</label>
+        <input type="text" class="form-control" id="companyCode"
+         formControlName="companyCode"  [(ngModel)]= "company.companyCode"/>
+         <div *ngIf="companyForm.controls['companyCode'].errors" style="font-size: 0.8rem; color:red">
+            Company Code is required.
+        </div>
+            <label>Company Name</label>
+        <input type="text" class="form-control" id="companyName"
+         formControlName="companyName" [(ngModel)]= "company.companyName"/>
+         <div *ngIf="companyForm.controls['companyName'].errors"  style="font-size: 0.8rem; color:red">
+            Company Name is required.
+      </div>      
+     <label>Company CEO</label>
+     <input type="text" class="form-control" id="companyCeo"
+     formControlName="companyCeo" [(ngModel)]= "company.companyCeo"/>
+     <div *ngIf="companyForm.controls['companyCeo'].errors" style="font-size: 0.8rem; color:red">
+        Company CEO is required.
+  </div>     
+     <label>Company Turnover</label>
+     <input type="number" class="form-control" id="companyTurnover"
+     formControlName="companyTurnover" [(ngModel)]= "company.companyTurnover"/>
+     <div *ngIf="companyForm.controls['companyTurnover'].errors" style="font-size: 0.8rem; color:red">
+        Company Turnover is required.
+  </div>     
+     <label>Company Website</label>
+     <input type="text" class="form-control" id="companyWebsite"
+     formControlName= "companyWebsite" [(ngModel)]="company.companyWebsite" />
+     <div *ngIf="companyForm.controls['companyWebsite'].errors" style="font-size: 0.8rem; color:red">
+        Company Website is required.
+  </div>     
+     <label>Stock Exchange</label><br>
+     <select style="width: 630px; height: 39px"  formControlName="stockExchange" [(ngModel)]="company.stockExchange" id="stockExchange">
+        <option value="NSE">NSE</option>
+        <option value="BSE">BSE</option>        
+      </select>   
+     <br/>
+     <br/>
+     <button class="btn btn-success" [disabled]="companyForm.invalid" type="submit">Submit</button>
+ </form>
+  
+</div> 

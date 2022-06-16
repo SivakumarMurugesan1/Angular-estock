@@ -1,0 +1,36 @@
+<h2 style="text-align: center">List of Companies</h2>
+<form class="example" style="text-align: right">
+    <button type="submit">Search Company</button>
+    <input type="text"  [(ngModel)]= "searchCompanyCode" placeholder="Enter company code" 
+    name="search">
+    
+    <!-- <button (click)="searchCompany(searchCompanyCode)" type="submit">Search</button> -->
+  </form>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Company Code</th>
+            <th>Company Name</th>
+            <th>Company CEO</th>
+            <th>Company Turnover</th>
+            <th>Company Website</th>
+            <th>Stock Exchange</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let company of companies | searchCompany:searchCompanyCode">
+            <td>{{company.companyCode}}</td>
+            <td>{{company.companyName}}</td>
+            <td>{{company.companyCeo}}</td>
+            <td>{{company.companyTurnover}} Crores</td>
+            <td>{{company.companyWebsite}}</td>
+            <td>{{company.stockExchange}}</td>
+            <td>
+                <button (click)="deleteCompany(company.companyCode)" class="btn btn-danger">Delete</button>
+                <button (click)="addStock(company.companyCode)" class="btn btn-info"  style="margin-left:10px">Add Stocks</button>
+                           
+            </td>
+        </tr>
+            </tbody>
+</table>

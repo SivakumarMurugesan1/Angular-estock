@@ -1,0 +1,10 @@
+<div class="col-md-6 offset-md-3">
+    <h3>Add Stock</h3>
+<form action="processor.html" method="get">    
+       <label>Stock price</label>        
+     <input type="number" class="form-control" id="price"
+     [(ngModel)]= "stock.price" name="price" placeholder="Enter stock price" required/>
+     <br/>
+     <button (click)="onSubmit()" class="btn btn-success" type="submit">Add</button>
+ </form>
+</div>
